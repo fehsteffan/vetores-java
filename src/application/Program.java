@@ -2,31 +2,45 @@ package application;
 
 
 
-import java.util.Locale;
+
 import java.util.Scanner;
 
 public class Program {
 
     public static void main(String[] args) {
 
-        Locale.setDefault(Locale.ENGLISH);
+
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        double[] vect = new double[n];
 
-        for (int i=0; i<n; i++) {
-            vect[i] = sc.nextDouble();
-        }
-        double sum = 0.0;
-        for (int i=0; i<n; i++) {
-            sum += vect[i];
+        while (n != 0) {
+            int[][] mat = new int[n][n];
+
+            for (int i=0; i<n; i++) {
+                for (int j=0; j<n; j++) {
+                    mat[i][j] = 1 + Math.abs(i - j);
+
+                }
+            }
+
+            for (int i=0; i<n; i++) {
+                System.out.printf("%3d", mat[i][0]);
+                for (int j=1; j<n; j++) {
+                    System.out.printf(" %3d", mat[i][j]);
+                }
+                System.out.println();
+            }
+            System.out.println();
+
+            n = sc.nextInt();
+
+          }
 
         }
-        double avg = sum / n;
-        System.out.printf(" MEDIA : %.2f%n " , avg);
+
     }
 
-}
+
 
 
